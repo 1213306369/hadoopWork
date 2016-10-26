@@ -26,6 +26,7 @@ public class Counter {
 				ip=tokens[0];
 			}
 		}
+		if(ip!=null)System.out.println(ip+"\t"+list.size());
 		sc.close();
 	}
 }
