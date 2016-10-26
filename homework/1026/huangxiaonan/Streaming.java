@@ -8,7 +8,12 @@ public class Streaming {
 		sc = new Scanner(System.in);
 		while(sc.hasNext()){
 			String line = sc.nextLine();
-			System.out.println(line);
+			String[] tokens;
+			tokens = line.split(" ");
+			if(tokens.length>6){
+				//System.out.printf("%s\t%s\n",tokens[0],tokens[6]);
+				System.out.println(tokens[0]+"\t"+tokens[6]);
+			}	
 		}
 	}
 }
