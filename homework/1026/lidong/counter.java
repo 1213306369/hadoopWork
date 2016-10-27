@@ -7,8 +7,9 @@ import java.util.Scanner;
 public class Counter {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		List<String> list = new ArrayList<String>();
-		String ip =null;
+		//List<String> list = new ArrayList<String>();
+		set<String> set = new HashSet(String);
+ 		String ip =null;
 		while(sc.hasNext()){
 			String line= sc.nextLine();
 			String[] tokens = line.split("\t");
@@ -16,17 +17,18 @@ public class Counter {
 			String path =tokens[1];
 			
 			if(tokens[0].equals(ip)){
-				if(!list.contains(path)){
+				/*if(!list.contains(path)){
 					list.add(path);					
-				}
+				}*/
+				set.add(path)
 			}else{
-				if(ip!=null)System.out.println(ip+"\t"+list.size());
-				list.clear();
-				list.add(path);
+				if(ip!=null)System.out.println(ip+"\t"+set.size());
+				set.clear();
+				set.add(path);
 				ip=tokens[0];
 			}
 		}
-		if(ip!=null)System.out.println(ip+"\t"+list.size());
+		if(ip!=null)System.out.println(ip+"\t"+set.size());
 		sc.close();
 	}
 }
