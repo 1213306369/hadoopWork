@@ -13,11 +13,11 @@ public class CountIp {
 			String str = sca.nextLine();
 			String[] str1 = str.split("\t");
 			if (list.isEmpty()) {//如果是空那么就船一个ip的值
-				list.add(str1[0]);
+				list.add(str1[0]);hs.add(str1[0]);
 			} else {//不为空比较
 				if (list.contains(str1[0])) {hs.add(str1[1]);} else {
 					System.out.println(list.get(0)+"\t"+hs.size());
-					hs.clear();list.clear();hs.add(str1[1]);
+					hs.clear();list.clear();hs.add(str1[1]);list.add(str1[0]);
 				}
 			}
 		}
