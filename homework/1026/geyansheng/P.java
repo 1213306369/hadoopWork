@@ -1,33 +1,33 @@
 package test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class P {
 	public static void main(String[] args) {
-	Scanner sc= new Scanner(System.in); //创建一个输入
-	int first = 0; //判断第一行
-	int number = 0;//计数值
-	String s = null; //上一个IP的
+	Scanner sc= new Scanner(System.in);
+	Set<String> se = new HashSet();
+	int first = 0;
+	String s = null; 
 	while(sc.hasNext()){
-	 String line=sc.nextLine();  //读取一行数据
-	 String[] splits =line.split("\t");  //【0】代表前面的IP地址，
-	 
-	 if(first == 0){//判断是不是第一行
-		 s = splits[0];  //初始值给S
-		 first = 1;  //改变第一行
+	 String line=sc.nextLine(); 
+	 String[] splits =line.split("\t"); 
+	 if(first == 0){
+		 s = splits[0];  
+		 first = 1;  
 	 }
 	 if(splits[0].equals(s)){
-		 number++; //相等+1
+		 se.add(splits[1]);
 		 }
 	 else{
-		System.out.printf("%s\t%d\n",s,number);
+		System.out.printf("%s\t%d\n",s,se.size());
+		se.clear();
 		s=splits[0];
-		number=1;
+		 se.add(splits[1]);
 	 }
 	 if(sc.hasNext()==false){
-			System.out.printf("%s\t%d\n",splits[0],number);
+			System.out.printf("%s\t%d\n",splits[0],se.size());
 		}
 	 }
 }
