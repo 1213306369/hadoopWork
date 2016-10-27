@@ -1,13 +1,15 @@
 package com.qst;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Stream3 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		List<String> list = new ArrayList<String>();
+		Set<String> set = new HashSet<String>();
 		String previous="";
 		while(sc.hasNext()){
 			String line=sc.nextLine();
@@ -15,17 +17,17 @@ public class Stream3 {
 			String ip = items[0];
 			String url = items[1];
 			if(previous.equals(ip)){
-				if(!list.contains(url)){
-					list.add(url);
-				}
+					set.add(url);
 			}else{
 				if(!previous.equals(""))
-					System.out.println(previous+"\t"+list.size());
+					System.out.println(previous+"\t"+set.size());
 				previous=ip;
-				list.clear();
-				list.add(url);
+				set.clear();
+				set.add(url);
 			}
 		}
+		if(!previous.equals(""))
+			System.out.println(previous+"\t"+set.size());
 		sc.close();
 	}	
 }
